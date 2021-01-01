@@ -6,7 +6,6 @@ import random
 
 from tensorflow.core.framework import summary_pb2
 
-
 def make_summary(name, val):
     return summary_pb2.Summary(value=[summary_pb2.Summary.Value(tag=name, simple_value=val)])
 
@@ -33,6 +32,7 @@ def parse_anchors(anchor_path):
     parse anchors.
     returned data: shape [N, 2], dtype float32
     '''
+    print('anchor_path',anchor_path)
     anchors = np.reshape(np.asarray(open(anchor_path, 'r').read().split(','), np.float32), [-1, 2])
     return anchors
 
